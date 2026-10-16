@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lulalá ($LULALA) — A Matemática Humana Chegou à Solana</title>
+  <meta name="description" content="Lulalá ($LULALA) na Solana: 9 dedos + 4 anos = 13! A memecoin oficial do amor, da prosperidade e dos feitos pelo Brasil na rede Solana.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0a0e17;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --pt-red: #E11D48;
+      --pt-red-glow: rgba(225, 29, 72, 0.4);
+      --br-yellow: #F59E0B;
+      --br-yellow-glow: rgba(245, 158, 11, 0.4);
+      --br-green: #10B981;
+      --br-green-glow: rgba(16, 185, 129, 0.4);
+      --text-main: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --solana-purple: #9945FF;
+      --solana-cyan: #14F195;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(225, 29, 72, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(10, 14, 23, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--br-yellow);
+      box-shadow: 0 0 15px var(--br-yellow-glow);
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--pt-red);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .btn-cta {
+      background: linear-gradient(135deg, var(--pt-red) 0%, #BE123C 100%);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 15px var(--pt-red-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 70px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: var(--br-yellow);
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-pill .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--br-yellow);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--pt-red) 10%, var(--br-yellow) 50%, var(--br-green) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-slogan {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 600;
+      color: #E2E8F0;
+      max-width: 800px;
+      margin: 0 auto 32px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 16px 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .hero-avatar {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 36px;
+    }
+
+    .avatar-glow {
+      position: absolute;
+      inset: -15px;
+      background: conic-gradient(from 0deg, var(--pt-red), var(--br-yellow), var(--br-green), var(--pt-red));
+      border-radius: 50%;
+      filter: blur(25px);
+      opacity: 0.6;
+      animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-avatar img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--br-yellow);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s;
+    }
+
+    .hero-avatar img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    /* Actions Bar */
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-main);
+      padding: 12px 26px;
+      border-radius: 100px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+
+    /* Contract Box */
+    .contract-box {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .contract-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--br-yellow);
+    }
+
+    .contract-addr {
+      font-family: monospace;
+      font-size: 13px;
+      color: #94A3B8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: var(--pt-red);
+    }
+
+    /* Interactive Calculator Section */
+    .interactive-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .calc-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 36px;
+      text-align: center;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .calc-formula {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .calc-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid var(--border-color);
+      border-radius: 18px;
+      padding: 16px 24px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-main);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .calc-box.red { border-color: var(--pt-red); color: var(--pt-red); }
+    .calc-box.yellow { border-color: var(--br-yellow); color: var(--br-yellow); }
+    .calc-box.green { border-color: var(--br-green); color: var(--br-green); }
+
+    .calc-op {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--text-muted);
+    }
+
+    .btn-calc {
+      background: linear-gradient(135deg, var(--br-yellow) 0%, #D97706 100%);
+      color: #0F172A;
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      padding: 14px 36px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px var(--br-yellow-glow);
+      transition: all 0.2s;
+    }
+
+    .btn-calc:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+    }
+
+    .calc-result {
+      margin-top: 24px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--pt-red);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .calc-result.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Tokenomics Section */
+    .tokenomics {
+      padding: 80px 0;
+    }
+
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .token-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .token-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .token-card.c1 { border-top: 4px solid var(--pt-red); }
+    .token-card.c2 { border-top: 4px solid var(--br-yellow); }
+    .token-card.c3 { border-top: 4px solid var(--br-green); }
+    .token-card.c4 { border-top: 4px solid var(--solana-cyan); }
+
+    .token-pct {
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .token-card.c1 .token-pct { color: var(--pt-red); }
+    .token-card.c2 .token-pct { color: var(--br-yellow); }
+    .token-card.c3 .token-pct { color: var(--br-green); }
+    .token-card.c4 .token-pct { color: var(--solana-cyan); }
+
+    .token-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .token-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .token-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* How to Buy Section */
+    .how-to-buy {
+      padding: 60px 0 90px;
+      border-top: 1px solid var(--border-color);
+      background: rgba(10, 14, 23, 0.4);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--br-yellow);
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    /* Canvas Confetti */
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--br-green);
+      color: #064E3B;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 25px var(--br-green-glow);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confettiCanvas"></canvas>
+  <div id="toast" class="toast">Endereço copiado para a área de transferência!</div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <img src="logo_oficial_lulala.jpg" alt="Lulalá Logo">
+        <div class="brand-title">Lula<span>lá</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="#matematica" class="nav-link">A Matemática</a>
+        <a href="#tokenomics" class="nav-link">Os Feitos</a>
+        <a href="#comocomprar" class="nav-link">Como Comprar</a>
+        <a href="https://pump.fun/coin/9c2oFMkiWisHKqxpksQDGwCUcdtHTQ3vi6HtXWYApump" target="_blank" class="btn-cta">
+          🚀 Comprar $LULALA
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge-pill">
+        <span class="dot"></span>
+        A 1ª Memecoin da Matemática Humana na Solana
+      </div>
+
+      <div class="hero-avatar">
+        <div class="avatar-glow"></div>
+        <img src="logo_oficial_lulala.jpg" alt="Lulalá Avatar Oficial">
+      </div>
+
+      <h1 class="hero-title">
+        Lula<span class="highlight">lá</span> ($LULALA)
+      </h1>
+
+      <div class="hero-slogan">
+        "A matemática humana chegou à Solana: 9 dedos + 4 anos = 13! Lulalá! 🇧🇷✨"
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://pump.fun/coin/9c2oFMkiWisHKqxpksQDGwCUcdtHTQ3vi6HtXWYApump" target="_blank" class="btn-cta" style="padding: 14px 34px; font-size: 16px;">
+          🚀 Negociar no Pump.fun
+        </a>
+        <a href="https://dexscreener.com/solana/9c2oFMkiWisHKqxpksQDGwCUcdtHTQ3vi6HtXWYApump" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+          📊 Ver no DexScreener
+        </a>
+        <button class="btn-secondary" onclick="tocarCelebracao()">
+          🎺 Ouvir Celebração
+        </button>
+      </div>
+
+      <div class="contract-box">
+        <span class="contract-label">Contrato (CA):</span>
+        <span class="contract-addr" id="caText">9c2oFMkiWisHKqxpksQDGwCUcdtHTQ3vi6HtXWYApump</span>
+        <button class="btn-copy" onclick="copiarCA()">Copiar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Calculator -->
+  <section id="matematica" class="interactive-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">A Calculadora da Matemática Humana</h2>
+        <p class="section-sub">
+          Na blockchain da Solana, os robôs calculam com números normais. Mas no Brasil, a matemática funciona com o coração e a história!
+        </p>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-formula">
+          <div class="calc-box red">9 Dedos</div>
+          <div class="calc-op">+</div>
+          <div class="calc-box yellow">4 Anos</div>
+          <div class="calc-op">=</div>
+          <div class="calc-box green" id="boxResult">?</div>
+        </div>
+
+        <button class="btn-calc" onclick="calcularResultado()">
+          CALCULAR RESULTADO ⚡
+        </button>
+
+        <div id="calcResultText" class="calc-result">
+          ⭐ 13 = LULALÁ! ⭐
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics / Os Feitos pelo Brasil -->
+  <section id="tokenomics" class="tokenomics">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill" style="margin-bottom: 12px;">Tokenomics do Povo</div>
+        <h2 class="section-title">Os Grandes Feitos Pelo Brasil</h2>
+        <p class="section-sub">
+          Uma distribuição inspirada nas maiores conquistas históricas e programas sociais que transformaram milhões de vidas.
+        </p>
+      </div>
+
+      <div class="token-grid">
+        <!-- 13% Bolsa Família -->
+        <div class="token-card c1">
+          <div class="token-pct">13%</div>
+          <div class="token-badge">Pilar da Dignidade</div>
+          <h3 class="token-name">Bolsa Família & Fome Zero</h3>
+          <p class="token-desc">
+            Homenagem ao programa histórico que tirou o Brasil do Mapa da Fome da ONU e garantiu comida e dignidade na mesa de mais de 50 milhões de pessoas.
+          </p>
+        </div>
+
+        <!-- 9% Luz para Todos & Água -->
+        <div class="token-card c2">
+          <div class="token-pct">9%</div>
+          <div class="token-badge">Energia e Vida</div>
+          <h3 class="token-name">Luz Para Todos & Transposição</h3>
+          <p class="token-desc">
+            Homenagem à eletrificação do campo que iluminou 15 milhões de lares e às águas do Rio São Francisco que mataram a sede secular do sertão brasileiro.
+          </p>
+        </div>
+
+        <!-- 4% Minha Casa Minha Vida -->
+        <div class="token-card c3">
+          <div class="token-pct">4%</div>
+          <div class="token-badge">Futuro e Educação</div>
+          <h3 class="token-name">Minha Casa & Universidades</h3>
+          <p class="token-desc">
+            Homenagem ao sonho da casa própria para milhões de famílias e à primeira geração de filhos de trabalhadores a entrarem nas faculdades públicas e privadas (Prouni).
+          </p>
+        </div>
+
+        <!-- 74% Comunidade Descentralizada -->
+        <div class="token-card c4">
+          <div class="token-pct">74%</div>
+          <div class="token-badge">Poder Popular</div>
+          <h3 class="token-name">100% Para a Comunidade</h3>
+          <p class="token-desc">
+            Totalmente público, sem taxas abusivas (0% Tax) e com liquidez transparente na rede Solana. O povo no controlo absoluto do mercado!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Buy -->
+  <section id="comocomprar" class="how-to-buy">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Como Participar no Pump.fun</h2>
+        <p class="section-sub">
+          Juntar-se à comunidade é simples e leva menos de 2 minutos.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4 class="step-title">Instala a Phantom</h4>
+          <p class="step-desc">
+            Descarrega a carteira Phantom no telemóvel ou no navegador (Google Chrome/Brave).
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4 class="step-title">Coloca Solana (SOL)</h4>
+          <p class="step-desc">
+            Transfere uma pequena quantia de SOL para a tua carteira para cobrir a compra e as taxas de cêntimos.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4 class="step-title">Entra no Pump.fun</h4>
+          <p class="step-desc">
+            Acede à página oficial do token <b>Lulalá ($LULALA)</b> e conecta a tua carteira Phantom com segurança.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h4 class="step-title">Faz o L na Solana!</h4>
+          <p class="step-desc">
+            Escolhe o montante, confirma a troca e guarda os teus tokens $LULALA na tua carteira para o futuro!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 10px;">
+        <b>Lulalá ($LULALA)</b> • A Primeira Memecoin da Matemática Humana na Solana
+      </p>
+      <p style="color: #64748B; font-size: 11.5px;">
+        Aviso: $LULALA é uma memecoin cultural criada para entretenimento e celebração comunitária da cultura brasileira na Web3. Criptoativos possuem volatilidade.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Copy CA
+    function copiarCA() {
+      const text = document.getElementById('caText').innerText;
+      navigator.clipboard.writeText(text);
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Audio synthesizer via Web Audio API (Fanfare alegre)
+    function tocarCelebracao() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioCtx();
+        const notas = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99]; // Acorde alegre C Major
+        notas.forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
+          gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.4);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + i * 0.12);
+          osc.stop(ctx.currentTime + i * 0.12 + 0.45);
+        });
+        dispararConfetes();
+      } catch (e) {
+        console.log("Audio API não disponível:", e);
+      }
+    }
+
+    // Interactive Calculator
+    function calcularResultado() {
+      const box = document.getElementById('boxResult');
+      const text = document.getElementById('calcResultText');
+      
+      box.innerText = '13';
+      box.classList.add('red');
+      text.classList.add('show');
+      
+      tocarCelebracao();
+    }
+
+    // Confetti Engine
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let confetti = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function dispararConfetes() {
+      const cores = ['#E11D48', '#F59E0B', '#10B981', '#FFFFFF', '#9945FF'];
+      for (let i = 0; i < 90; i++) {
+        confetti.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          r: Math.random() * 6 + 3,
+          d: Math.random() * 50 + 10,
+          color: cores[Math.floor(Math.random() * cores.length)],
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.8) * 18,
+          alpha: 1
+        });
+      }
+    }
+
+    function animarConfetes() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35; // gravidade
+        p.alpha -= 0.012;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, false);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.fill();
+
+        if (p.alpha <= 0 || p.y > canvas.height) {
+          confetti.splice(i, 1);
+        }
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animarConfetes);
+    }
+    animarConfetes();
+  </script>
+</body>
+</html>
